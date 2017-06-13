@@ -23,6 +23,8 @@ int belong(int * vector, int size, int element){ // RETORNA 1 SE PERTENCE , 0 SE
 
 
 void generateRandomDCR(int size, int percentage, int * vector){ //DEPOIS DA PORCENTAGEM RANDOMICA GERA EM ORDEM DECRESCENTE
+	int i;
+	int j;
 	int randomized_size;
 	if(percentage < 0){
 		printf("ERRO [gerar_vetor_randomico_DECR]: Porcentagem_randomizacao invalido!\n");
@@ -37,12 +39,12 @@ void generateRandomDCR(int size, int percentage, int * vector){ //DEPOIS DA PORC
 	else{
 		randomized_size = (int)((double)(size)*((double)(percentage)/(double)(100))) ;
 		int last_inserted = size;
-		for(int i=0;i<size;i++){
+		for(i=0;i<size;i++){
 			if(i < randomized_size){
 				vector[i] = rand()%size;
 			}
 			else{
-				for(int j=last_inserted;j>0;j--){
+				for(j=last_inserted;j>0;j--){
 					
 					if((belong(vector,randomized_size,j) == 0) && (last_inserted >= j)){
 						vector[i] = j;
@@ -57,13 +59,15 @@ void generateRandomDCR(int size, int percentage, int * vector){ //DEPOIS DA PORC
 }
 
 void generateRandomCRS(int size, int percentage, int * vector) { //DEPOIS DA PORCENTAGEM RANDOMICA GERA EM ORDEM CRESCENTE
+	int i;
+	int j;
 	int randomized_size;
 	if(percentage <= 0){
 		printf("ERRO [gerar_vetor_randomico_CRES]: Porcentagem_randomizacao invalido!\n");
 		return;
 	}
 	if(percentage == 100){
-		for(int i=0;i<size;i++){
+		for(i=0;i<size;i++){
 			vector[i] = rand()%size;
 		}
 		return;
@@ -71,12 +75,12 @@ void generateRandomCRS(int size, int percentage, int * vector) { //DEPOIS DA POR
 	else{
 		randomized_size = (int)((double)(size)*((double)(percentage)/(double)(100))) ;
 		int last_inserted = 0;
-		for(int i=0;i<size;i++){
+		for(i=0;i<size;i++){
 			if(i< randomized_size){
 				vector[i] = rand()%size;
 			}
 			else{
-				for(int j=last_inserted;j<size;j++){
+				for(j=last_inserted;j<size;j++){
 					if((belong(vector,randomized_size,j) == 0) && (last_inserted <= j)){
 						vector[i] = j;
 						last_inserted = j+1;
