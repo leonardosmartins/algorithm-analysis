@@ -31,7 +31,7 @@ void generateRandomDCR(int size, int percentage, int * vector){ //DEPOIS DA PORC
 		return;
 	}
 	if(percentage == 100){
-		for(int i=0;i<size;i++){
+		for(i=0;i<size;i++){
 			vector[i] = rand()%size;
 		}
 		return;
