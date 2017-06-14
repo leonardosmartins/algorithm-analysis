@@ -10,6 +10,27 @@ void showVector(int * vector, int size){
 	printf(")\n");
 }
 
+double average(double * vector){
+	int i;
+	double total;
+
+	total = 0;
+	
+	for(i=0;i<3;i++){
+		total = total + vector[i];
+	}
+
+	return (total/3);
+}
+
+void copyVector(int * vector, int * newVector, int size){
+	int i;
+
+	for(i=0;i<size;i++){
+		newVector[i] = vector[i];
+	}
+}
+
 int belong(int * vector, int size, int element){ // RETORNA 1 SE PERTENCE , 0 SE NAO PERTENCE
 	int count = 0;
 	while(count < size){
@@ -62,7 +83,7 @@ void generateRandomCRS(int size, int percentage, int * vector) { //DEPOIS DA POR
 	int i;
 	int j;
 	int randomized_size;
-	if(percentage <= 0){
+	if(percentage < 0){
 		printf("ERRO [gerar_vetor_randomico_CRES]: Porcentagem_randomizacao invalido!\n");
 		return;
 	}
@@ -298,3 +319,82 @@ void bubbleSort(int * vector, int size){
                                  break;
                  }
  }
+
+ void bucketSort(int * vector, int size){
+    balde b[num_balde];
+    int i,j,k;
+    for(i=0;i<num_balde;i++)
+        b[i].topo=0;
+
+    for(i=0;i<size;i++){
+        j=(num_balde)-1;
+        while(1){
+            if(j<0)
+                break;
+            if(vector[i]>=j*10){
+                b[j].balde[b[j].topo]=vector[i];
+                (b[j].topo)++;
+                break;
+            }
+            j--;
+        }
+    }
+
+    for(i=0;i<num_balde;i++)
+        if(b[i].topo)
+            insertionSort(b[i].balde,b[i].topo);
+
+    i=0;
+    for(j=0;j<num_balde;j++){
+        for(k=0;k<b[j].topo;k++){
+            vector[i]=b[j].balde[k];
+            i++;
+        }
+    }
+}
+
+void countingSort(int * vector, int size){
+	int i,maior = 0;
+	int B[size];
+
+	for(i=0; i<size; i++) {//Zera o vetor vetB
+		B[i] = 0;
+
+	}
+
+	for(i=0; i<size; i++){
+		if(vector[i] > maior){
+
+			maior = vector[i];
+		}
+	}
+
+	int k = maior + 1;
+	int C[k];
+	
+	for (i=0;i<maior+1; i++){
+		C[i]=0;
+	}
+	
+
+	//Passo 1
+	for(i=0;i<size;i++){
+		C[vector[i]]++;
+	}
+
+	//Passo 2
+	for(i=1;i<k;i++){
+		C[i] += C[i-1];
+	}
+
+	//Passo 3
+	for(i=size-1;i>=0;i--){
+		B[C[vector[i]]] = vector[i];
+		C[vector[i]]--;
+	}
+
+	for(i=1;i<size+1;i++){
+		vector[i-1]=B[i];
+	}
+
+}
