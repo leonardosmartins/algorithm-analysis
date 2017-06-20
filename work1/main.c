@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
 		}
 		
 		avg = average(times);
-   		printf("\t%d\t%lf\n", tamanho, avg);
+   		printf("%lf\n", avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 2){
 		for(i=0; i<3; i++){
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]){
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("\t%d\t%lf\n", tamanho, avg);
+   		printf("%lf\n", avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 3){
 		for(i=0; i<3; i++){
@@ -71,7 +71,7 @@ int main(int argc, char *argv[]){
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("\t%d\t%lf\n", tamanho, avg);
+   		printf("%lf\n", avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 4){
 		for(i=0; i<3; i++){
@@ -84,7 +84,7 @@ int main(int argc, char *argv[]){
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("\t%d\t%lf\n", tamanho, avg);
+   		printf("%lf\n", avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 5){
 		for(i=0; i<3; i++){
@@ -97,7 +97,7 @@ int main(int argc, char *argv[]){
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("\t%d\t%lf\n", tamanho, avg);
+   		printf("%lf\n", avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 6){
 		for(i=0; i<3; i++){
@@ -110,7 +110,7 @@ int main(int argc, char *argv[]){
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("\t%d\t%lf\n", tamanho, avg);
+   		printf("%lf\n", avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 7){
 		for(i=0; i<3; i++){
@@ -123,7 +123,7 @@ int main(int argc, char *argv[]){
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("\t%d\t%lf\n", tamanho, avg);	
+   		printf("%lf\n", avg);	
 	}
 	else{
 		printf("%s\n", "Parametro invalido" );
