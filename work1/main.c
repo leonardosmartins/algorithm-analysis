@@ -21,8 +21,6 @@ int main(int argc, char *argv[]){
 	int vetor[tamanho];
 	int aux[tamanho];
 	
-	//printf("%s\n", "--------------------VETOR ORIGINAL------------------- " );
-	
 	if(strtol(argv[2],NULL,10) == 1){
 		generateRandomCRS(tamanho,strtol(argv[3],NULL,10),vetor);
 	}
@@ -41,13 +39,13 @@ int main(int argc, char *argv[]){
 			insertionSort(aux,tamanho);
 			endTime = clock();
    			totalTime = (endTime-initialTime)*1000000/CLOCKS_PER_SEC;
-   			finalTime = totalTime/1000000;
+   			finalTime = totalTime/1000;
    			times[i] = finalTime;
    			
 		}
 		
 		avg = average(times);
-   		printf("%lf\n", avg);
+   		printf("\t%d\t%lf\n", tamanho, avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 2){
 		for(i=0; i<3; i++){
@@ -56,11 +54,11 @@ int main(int argc, char *argv[]){
 			mergeSort(aux,0,tamanho-1);
 			endTime = clock();
 	   		totalTime = (endTime-initialTime)*1000000/CLOCKS_PER_SEC;
-	   		finalTime = totalTime/1000000;
+	   		finalTime = totalTime/1000;
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("%lf\n", avg);
+   		printf("\t%d\t%lf\n", tamanho, avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 3){
 		for(i=0; i<3; i++){
@@ -69,11 +67,11 @@ int main(int argc, char *argv[]){
 			heapSort(aux,tamanho);
 			endTime = clock();
 	   		totalTime = (endTime-initialTime)*1000000/CLOCKS_PER_SEC;
-			finalTime = totalTime/1000000;
+			finalTime = totalTime/1000;
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("%lf\n", avg);
+   		printf("\t%d\t%lf\n", tamanho, avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 4){
 		for(i=0; i<3; i++){
@@ -82,11 +80,11 @@ int main(int argc, char *argv[]){
 			quickSort(aux,0,tamanho-1);
 			endTime = clock();
 	   		totalTime = (endTime-initialTime)*1000000/CLOCKS_PER_SEC;
-			finalTime = totalTime/1000000;
+			finalTime = totalTime/1000;
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("%lf\n", avg);
+   		printf("\t%d\t%lf\n", tamanho, avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 5){
 		for(i=0; i<3; i++){
@@ -95,11 +93,11 @@ int main(int argc, char *argv[]){
 			radixSort(aux,tamanho);
 			endTime = clock();
 	   		totalTime = (endTime-initialTime)*1000000/CLOCKS_PER_SEC;
-			finalTime = totalTime/1000000;
+			finalTime = totalTime/1000;
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("%lf\n", avg);
+   		printf("\t%d\t%lf\n", tamanho, avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 6){
 		for(i=0; i<3; i++){
@@ -108,11 +106,11 @@ int main(int argc, char *argv[]){
 			countingSort(aux,tamanho);
 			endTime = clock();
 	   		totalTime = (endTime-initialTime)*1000000/CLOCKS_PER_SEC;
-			finalTime = totalTime/1000000;
+			finalTime = totalTime/1000;
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("%lf\n", avg);
+   		printf("\t%d\t%lf\n", tamanho, avg);
 	}
 	else if(strtol(argv[4],NULL,10) == 7){
 		for(i=0; i<3; i++){
@@ -121,11 +119,11 @@ int main(int argc, char *argv[]){
 			bucketSort(aux,tamanho);
 			endTime = clock();
 	   		totalTime = (endTime-initialTime)*1000000/CLOCKS_PER_SEC;
-			finalTime = totalTime/1000000;
+			finalTime = totalTime/1000;
    			times[i] = finalTime;
 		}
 		avg = average(times);
-   		printf("%lf\n", avg);
+   		printf("\t%d\t%lf\n", tamanho, avg);	
 	}
 	else{
 		printf("%s\n", "Parametro invalido" );
