@@ -31,7 +31,7 @@ void copyVector(int * vector, int * newVector, int size){
 	}
 }
 
-int belong(int * vector, int size, int element){ // RETORNA 1 SE PERTENCE , 0 SE NAO PERTENCE
+int belong(int * vector, int size, int element){ 
 	int count = 0;
 	while(count < size){
 		if(vector[count]==element){
@@ -43,7 +43,7 @@ int belong(int * vector, int size, int element){ // RETORNA 1 SE PERTENCE , 0 SE
 }
 
 
-void generateRandomDCR(int size, int percentage, int * vector){ //DEPOIS DA PORCENTAGEM RANDOMICA GERA EM ORDEM DECRESCENTE
+void generateRandomDCR(int size, int percentage, int * vector){ 
 	int i;
 	int j;
 	int randomized_size;
@@ -79,7 +79,7 @@ void generateRandomDCR(int size, int percentage, int * vector){ //DEPOIS DA PORC
 	}
 }
 
-void generateRandomCRS(int size, int percentage, int * vector) { //DEPOIS DA PORCENTAGEM RANDOMICA GERA EM ORDEM CRESCENTE
+void generateRandomCRS(int size, int percentage, int * vector) {
 	int i;
 	int j;
 	int randomized_size;
@@ -146,17 +146,17 @@ void merge(int * vector, int start, int mid, int end) {
          }
          comAux++;
      }
-     while(com1<=mid){  //Caso ainda haja elementos na primeira metade
+     while(com1<=mid){ 
          vetAux[comAux] = vector[com1];
          comAux++;com1++;
      }
  
-     while(com2<=end){   //Caso ainda haja elementos na segunda metade
+     while(com2<=end){   
          vetAux[comAux] = vector[com2];
          comAux++;com2++;
      }
  
-     for(comAux=start;comAux<=end;comAux++){    //Move os elementos de volta para o vetor original
+     for(comAux=start;comAux<=end;comAux++){    
          vector[comAux] = vetAux[comAux-start];
      }
  }
@@ -170,7 +170,7 @@ void merge(int * vector, int start, int mid, int end) {
      }
  }
 
- // rebuild recursive
+
 void rebuildHeap(int * vector, int limit, int pos)
 {		
 	int c1, c2;
@@ -221,13 +221,8 @@ void buildHeap(int * vector, int size)
 
 void heapSort(int * vector, int size)
 {
-	// builds the heap
 	buildHeap(vector, size);
 
-	/*
-		change the item of the position 1 with the item of the position "n", 
-		after with "n - 1", "n - 2" until there only 1 item.
-	*/
 	int limit = size;
 	
 	while(1)
@@ -357,7 +352,7 @@ void countingSort(int * vector, int size){
 	int i,maior = 0;
 	int B[size];
 
-	for(i=0; i<size; i++) {//Zera o vetor vetB
+	for(i=0; i<size; i++) {
 		B[i] = 0;
 
 	}
@@ -376,18 +371,14 @@ void countingSort(int * vector, int size){
 		C[i]=0;
 	}
 	
-
-	//Passo 1
 	for(i=0;i<size;i++){
 		C[vector[i]]++;
 	}
 
-	//Passo 2
 	for(i=1;i<k;i++){
 		C[i] += C[i-1];
 	}
 
-	//Passo 3
 	for(i=size-1;i>=0;i--){
 		B[C[vector[i]]] = vector[i];
 		C[vector[i]]--;
