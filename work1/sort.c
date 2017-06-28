@@ -208,14 +208,14 @@ void buildHeap(int * vector, int size)
 	int left;
 	
 	if(size % 2 == 0)
-		left = size / 2 + 1;
+		left = size / 2;
 	else
-		left = (size - 1) / 2 + 1;
+		left = (size - 1) / 2;
 	
-	while(left > 1)
+	while(left > 0)
 	{
-		left--;
 		rebuildHeap(vector, size, left);
+		left--;
 	}
 }
 
